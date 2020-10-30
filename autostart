@@ -1,0 +1,86 @@
+#! /bin/bash
+
+
+# ---- A E S T H E T I C S ----
+
+wallpaper=$HOME/wallpaper.png
+
+# wal-gen.sh;
+# per-workspace-wal.sh &
+
+# source from own script
+. "$HOME/scripts/colorschemes/current.sh"
+
+FOREGROUND="$foreground"
+BACKGROUND="$background"
+BLACK="$color0"
+RED="$color1"
+GREEN="$color2"
+YELLOW="$color3"
+BLUE="$color4"
+MAGENTA="$color5"
+CYAN="$color6"
+WHITE="$color7"
+
+#generate gtk theme with oomox
+# oomox-cli -t ~/.themes --make-opts all -o pywal_theme  ~/.cache/wal/colors-oomox;
+
+# reload Xresources colors
+xrdb ~/.Xresources
+
+# set wallpaper
+xwallpaper --zoom ~/wallpaper.png
+
+# generate zathura config
+zathura-rice.sh > ~/.config/zathura/zathurarc;
+
+
+# ---- program launches ----
+
+# betterlockscreen -u $wallpaper &
+
+# dunst config/launch
+killall dunst;
+dunst \
+	-lb "$BACKGROUND" \
+	-lf "$FOREGROUND" \
+	-lfr "$GREEN" \
+	-nb "$BACKGROUND" \
+	-nf "$FOREGROUND" \
+	-nfr "$BLUE" \
+	-cb "$BACKGROUND" \
+	-cf "$FOREGROUND" \
+	-cfr "$RED" &
+
+# compositor
+killall picom;
+picom --config ~/.config/picom/picom.conf -b --experimental-backends --backend glx
+
+# ---- status bar ----
+# lemonbar
+cheesbar.sh
+# killall lemonbar;
+# lemonbar-script;
+
+# stalonetray
+# killall stalonetray;
+# stalonetray -c ~/.config/.stalonetrayrc -bg "$background" &
+
+
+# ---- important startups ----
+
+xfce4-power-manager # power stuff for minimal wms
+
+killall sxhkd;
+sxhkd & # keyboard shortcuts
+
+# leave my trackpad alone
+xinput set-prop bcm5974 311 0
+
+# caps to escape
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+
+
+
+# notify
+notify-send "configs loaded..."

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#https://github.com/AKuederle/dmenu_tools/blob/master/win_switcher
+
+. $HOME/scripts/colorschemes/current.sh
+
+wmctrl -a $(wmctrl -l | awk '{$3=""; $2=""; $1=""; print $0}' | dmenu -b -fn "overpass 9" -nb $background -nf $foreground -sb $color4 -sf $color0 -i -l 16 )

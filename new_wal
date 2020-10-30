@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# sets wallpaper
+path=$1
+filename=$(basename -- "$path")
+ext="${filename##*.}"
+
+old="$HOME/wallpaper.$ext"
+
+cp $path $old
+convert $old $HOME/wallpaper.png;
+xwallpaper --zoom $HOME/wallpaper.png
+rm $old
+notify-send "wallpaper set"
+
+
