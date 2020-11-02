@@ -1,7 +1,7 @@
 # Shell variables
 
 foreground='#b6b1a4'
-background='#152124'
+background='#0a0f11'
 cursor='#b6b1a4'
 # black'
 color0='#112f32'

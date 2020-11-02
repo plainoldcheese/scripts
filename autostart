@@ -30,6 +30,7 @@ xrdb ~/.Xresources
 
 # set wallpaper
 xwallpaper --zoom ~/wallpaper.png
+# xwallpaper --tile ~/pics/wal/tile/steamsale.png
 
 # generate zathura config
 zathura-rice.sh > ~/.config/zathura/zathurarc;
@@ -69,8 +70,6 @@ cheesbar.sh
 
 # ---- important startups ----
 
-xfce4-power-manager # power stuff for minimal wms
-
 killall sxhkd;
 sxhkd & # keyboard shortcuts
 
@@ -79,8 +78,6 @@ xinput set-prop bcm5974 311 0
 
 # caps to escape
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-
-
 
 # notify
 notify-send "configs loaded..."

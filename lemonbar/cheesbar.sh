@@ -9,10 +9,8 @@ FONT="overpass-9"
 
 killall lemonbar;
 
-# echo " " | lemonbar -g 152x26+539+11 -p -B $color2 -F $foreground -f $FONT &
-$HOME/scripts/lemonbar/clock.sh | lemonbar -g 150x24+540+12 -p -B $background -F $foreground -f $FONT &
+$HOME/scripts/lemonbar/clock.sh | lemonbar -g 150x24+565+12 -p -B $background -F $foreground -f $FONT &
 
-# echo " " | lemonbar -g 102x26+1155+11 -p -B $color2 -F $foreground -f $FONT &
 $HOME/scripts/lemonbar/bat.sh | lemonbar -g 100x24+1156+12 -p -B $background -F $foreground -f $FONT &
 
 

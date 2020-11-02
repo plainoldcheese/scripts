@@ -3,10 +3,10 @@
 # Generates zathura configuration file
 
 #. $HOME/.cache/wal/colors.sh
-. "$HOME/scripts/colorschemes/teal-n-orange-2.sh"
+. "$HOME/scripts/colorschemes/current.sh"
 
 cat <<CONF
-set recolor "true"
+set recolor "false"
 
 set completion-bg "$background"
 set completion-fg "$foreground"
